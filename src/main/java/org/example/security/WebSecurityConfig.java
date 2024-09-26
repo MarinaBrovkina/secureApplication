@@ -14,9 +14,9 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(authorize -> authorize //
+                .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/profile").permitAll()
-                        .requestMatchers("/secured").authenticated() // Теперь этот endpoint защищен
+                        .requestMatchers("/secured").authenticated()
                         .anyRequest().authenticated()
                 )
                 .formLogin(Customizer.withDefaults());
